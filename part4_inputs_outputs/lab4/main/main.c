@@ -45,7 +45,7 @@ static const char *TAG = "MAIN";
 // Vref in mV
 #define DEFAULT_VREF 1100
 const adc_unit_t unit = ADC_UNIT_1;
-const adc_channel_t channel = ADC_CHANNEL_1;
+const adc_channel_t channel = ADC1_CHANNEL_1;
 const adc_bits_width_t width = ADC_WIDTH_BIT_10;
 const adc_atten_t atten = ADC_ATTEN_DB_11;
 
