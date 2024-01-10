@@ -25,6 +25,7 @@
 #include "esp_log.h"
 #include "nvs_flash.h"
 #include "esp_netif.h"
+#include "http_data.h"
 
 #include "wifi_connect.h"
 
@@ -33,20 +34,23 @@
 
 static const char *TAG = "WIFI_LAB";
 
+ /* To be added */
+ #include "esp_http_client.h"
 
 /**
  * @brief Starting point function
  *
  */
 
-
 void MyApplication()
 {
   printf("lab7 wifi_connected \n\r");
+  http_param_t param;
+  fetchHttpData(&param,"http://www.google.com");
 }
 
 void vConnectedWifi(){
-  while(1){
+  while(pdTRUE){
     if(xSemaphoreTake(getConnectionWifiSemaphore(),pdMS_TO_TICKS(10000))==pdTRUE)
     {
       printf("Connected on %s\n\r",WIFI_SSID);
