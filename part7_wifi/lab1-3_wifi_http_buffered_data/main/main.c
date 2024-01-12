@@ -47,6 +47,13 @@ void MyApplication()
   printf("lab7 wifi_connected \n\r");
   http_param_t param;
   fetchHttpData(&param,"http://www.google.com");
+  // Check if the buffer is not NULL before displaying and freeing the memory
+  if (param.buffer != NULL) {
+    ESP_LOGI(TAG, "HTTP Data: %s", param.buffer);
+  // Free the memory allocated for the buffer
+    free(param.buffer);
+    param.buffer = NULL; // Set the buffer pointer to NULL after freeing the memory
+  }
 }
 
 void vConnectedWifi(){

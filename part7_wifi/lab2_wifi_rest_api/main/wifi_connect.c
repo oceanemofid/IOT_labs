@@ -18,6 +18,7 @@
 
 static const char *TAG = "WIFI_LAB";
 
+
 /* Local communication */
 static xSemaphoreHandle connectionWifiSemaphore;
 

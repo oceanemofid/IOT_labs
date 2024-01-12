@@ -18,6 +18,8 @@
 
 static const char *TAG = "HTTP_DATA";
 
+int number = 0;
+
 /**
  * @brief The HTTP event handler
  *
@@ -50,7 +52,9 @@ esp_err_t wifi_http_event_handler_cb(esp_http_client_event_t *evt)
       break;  
 
     case HTTP_EVENT_ON_DATA:
-      //...
+      ESP_LOGI(TAG, "HTTP_EVENT_ON_DATA Len=%d", evt->data_len);
+      printf("%.*s\n", evt->data_len, (char *)evt->data);
+      printf("Event n%d\n", number++);
       ++packet_count;
 
       /* Buffered data */
